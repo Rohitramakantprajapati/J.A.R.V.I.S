@@ -20,7 +20,7 @@ My work in this repository includes:
 - Project structure notes and interview documentation
 - Branding, setup messaging, and repository preparation updates
 
-If you use this repository, keep attribution to original open-source work where required by license.
+If you use this repository, keep attribution to the original open-source work where required by license.
 
 ## What JARVIS Can Do
 
@@ -49,10 +49,11 @@ If you use this repository, keep attribution to original open-source work where 
 - Python 3.10 or newer
 - Working microphone
 - Gemini API key
+
 ## Setup Steps
 
 1. Clone this repository
-	- https://github.com/Rohitramakantprajapati/J.A.R.V.I.S
+   - https://github.com/Rohitramakantprajapati/J.A.R.V.I.S
 2. Install dependencies using setup.py or requirements.txt
 3. Install Playwright browser binaries
 4. Run main.py
