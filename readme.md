@@ -3,6 +3,7 @@
 This repository is a customized and actively maintained version of a JARVIS-style voice assistant for Windows.
 
 Maintainer: Rohit Ramakant Prajapati
+Repository: https://github.com/Rohitramakantprajapati/J.A.R.V.I.S
 
 ## About This Project
 
@@ -51,6 +52,7 @@ If you use this repository, keep attribution to original open-source work where 
 ## Setup Steps
 
 1. Clone this repository
+	- https://github.com/Rohitramakantprajapati/J.A.R.V.I.S
 2. Install dependencies using setup.py or requirements.txt
 3. Install Playwright browser binaries
 4. Run main.py
