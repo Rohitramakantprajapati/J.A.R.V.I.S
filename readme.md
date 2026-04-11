@@ -2,8 +2,8 @@
 
 This repository is a customized and actively maintained version of a JARVIS-style voice assistant for Windows.
 
-Maintainer: Rohit Ramakant Prajapati
-Repository: https://github.com/Rohitramakantprajapati/J.A.R.V.I.S
+- Maintainer: Rohit Ramakant Prajapati
+- Repository: [J.A.R.V.I.S](https://github.com/Rohitramakantprajapati/J.A.R.V.I.S)
 
 ## About This Project
 
@@ -35,13 +35,13 @@ If you use this repository, keep attribution to the original open-source work wh
 
 ## Main Architecture
 
-- main.py: Starts runtime, audio loops, live model connection, and tool dispatch
-- ui.py: JARVIS interface and runtime status log
-- actions/: Modular tool handlers for apps, browser, messaging, files, and system tasks
-- agent/: Planning, execution, queueing, and error recovery logic
-- memory/: Long-term memory and configuration helpers
-- core/prompt.txt: System behavior prompt
-- config/api_keys.json: Local API key file
+- `main.py`: Starts runtime, audio loops, live model connection, and tool dispatch
+- `ui.py`: JARVIS interface and runtime status log
+- `actions/`: Modular tool handlers for apps, browser, messaging, files, and system tasks
+- `agent/`: Planning, execution, queueing, and error recovery logic
+- `memory/`: Long-term memory and configuration helpers
+- `core/prompt.txt`: System behavior prompt
+- `config/api_keys.json`: Local API key file
 
 ## Requirements
 
@@ -53,10 +53,9 @@ If you use this repository, keep attribution to the original open-source work wh
 ## Setup Steps
 
 1. Clone this repository
-   - https://github.com/Rohitramakantprajapati/J.A.R.V.I.S
-2. Install dependencies using setup.py or requirements.txt
+2. Install dependencies using `setup.py` or `requirements.txt`
 3. Install Playwright browser binaries
-4. Run main.py
+4. Run `main.py`
 5. Enter your own Gemini API key when prompted
 
 ## API Key and Privacy
