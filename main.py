@@ -78,8 +78,13 @@ CHUNK_SIZE          = 1024
 pya = pyaudio.PyAudio()
 
 def _get_api_key() -> str:
-    with open(API_CONFIG_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)["gemini_api_key"]
+    from memory.config_manager import get_gemini_key
+    key = get_gemini_key()
+    if not key:
+        raise RuntimeError(
+            "Gemini API key not configured. Set GEMINI_API_KEY env var or create config/api_keys.json"
+        )
+    return key
 
 def _load_system_prompt() -> str:
     try:

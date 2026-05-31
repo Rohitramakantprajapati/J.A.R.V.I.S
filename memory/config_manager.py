@@ -1,5 +1,6 @@
 import json
 import sys
+import os
 from pathlib import Path
 
 
@@ -12,6 +13,9 @@ def get_base_dir() -> Path:
 BASE_DIR    = get_base_dir()
 CONFIG_DIR  = BASE_DIR / "config"
 CONFIG_FILE = CONFIG_DIR / "api_keys.json"
+
+# Environment fallback keys (preferred in production)
+GEMINI_ENV_VAR = "GEMINI_API_KEY"
 
 
 def ensure_config_dir() -> None:
@@ -41,6 +45,11 @@ def save_api_keys(gemini_api_key: str) -> None:
 
 
 def load_api_keys() -> dict:
+    # Prefer environment variables when provided
+    env_key = os.getenv(GEMINI_ENV_VAR)
+    if env_key:
+        return {"gemini_api_key": env_key}
+
     if not CONFIG_FILE.exists():
         return {}
     try:
@@ -51,6 +60,10 @@ def load_api_keys() -> dict:
 
 
 def get_gemini_key() -> str | None:
+    # Return env var first, then file-backed key
+    env_key = os.getenv(GEMINI_ENV_VAR)
+    if env_key:
+        return env_key
     return load_api_keys().get("gemini_api_key")
 
 

@@ -62,15 +62,11 @@ SYSTEM_PROMPT = (
 
 
 def _get_api_key() -> str:
-    try:
-        with open(API_CONFIG_PATH, "r", encoding="utf-8") as f:
-            keys = json.load(f)
-        key = keys.get("gemini_api_key", "")
-        if not key:
-            raise ValueError("gemini_api_key not found")
-        return key
-    except Exception as e:
-        raise RuntimeError(f"Could not load API key: {e}")
+    from memory.config_manager import get_gemini_key
+    key = get_gemini_key()
+    if not key:
+        raise RuntimeError("Gemini API key not configured. Set GEMINI_API_KEY env var or create config/api_keys.json")
+    return key
 
 
 def _get_camera_index() -> int:
@@ -115,6 +111,8 @@ def _get_camera_index() -> int:
             with open(API_CONFIG_PATH, "r", encoding="utf-8") as f:
                 cfg = json.load(f)
         cfg["camera_index"] = best_index
+        from memory.config_manager import ensure_config_dir
+        ensure_config_dir()
         with open(API_CONFIG_PATH, "w", encoding="utf-8") as f:
             json.dump(cfg, f, indent=4)
         print(f"[Camera] 💾 Camera index {best_index} saved to config.")
